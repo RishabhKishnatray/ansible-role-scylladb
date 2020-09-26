@@ -1,0 +1,19 @@
+---
+- name: Install epel-release
+  yum:
+    name: epel-release
+    state: latest
+
+- name: Download scylla repo
+  get_url:
+    url: 'http://repositories.scylladb.com/scylla/repo/02a599cd-73af-42f1-9ae4-6be19c9a0f9f/centos/scylladb-{{ version }}.repo'
+    dest: /etc/yum.repos.d/scylla.repo
+    mode: 0644
+    owner: root
+    group: root
+
+- name: Install scylla
+  yum:
+    name: scylla
+    state: latest
+  notify: setup scylla

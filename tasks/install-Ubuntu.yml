@@ -1,0 +1,24 @@
+---
+- name: Install dirmngr required by apt-key
+  apt:
+    name: dirmngr
+    update_cache: yes
+
+- name: Add scylla apt signing key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 5e08fbd8b5d6ec9c
+
+- name: Download PPA source
+  get_url:
+    url: 'http://downloads.scylladb.com/deb/ubuntu/scylla-4.1-{{ ansible_distribution_release }}.list'
+    dest: /etc/apt/sources.list.d/scylla.list
+    mode: 0644
+    owner: root
+    group: root
+
+- name: Update repositories cache and install scylla
+  apt:
+    name: scylla
+    update_cache: yes
+  notify: setup scylla

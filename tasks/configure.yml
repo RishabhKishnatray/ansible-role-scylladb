@@ -1,0 +1,23 @@
+---
+- name: Update scylla.conf file
+  template:
+    src: scylla.config.yml.j2
+    dest: /etc/scylla/scylla.yaml
+    mode: 0644
+  notify: restart scylla
+
+- name: Update cassandra-rackdc.properties
+  template:
+    src: cassandra-rackdc.properties.j2
+    dest: /etc/scylla/cassandra-rackdc.properties
+  notify: restart scylla
+
+- name: 'Ensure that scylla directories exists'
+  file:
+    path: '{{ item }}'
+    state: directory
+    recurse: yes
+    owner: scylla
+    group: scylla
+  with_items: '{{ scylla_directories }}'
+  notify: restart scylla

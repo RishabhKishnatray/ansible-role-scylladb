@@ -1,0 +1,6 @@
+---
+- name: Check if OS is supported by role
+  fail:
+    msg: '{{ host_os }} is currently not supported'
+  when:
+    - host_os not in supported_os

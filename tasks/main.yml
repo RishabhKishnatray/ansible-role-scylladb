@@ -1,0 +1,7 @@
+---
+- include_tasks: compatibility-check.yml
+- name: 'Install scylladb for {{ ansible_distribution }}'
+  include_tasks: 'install-{{ ansible_distribution }}.yml'
+
+- name: Configure scylladb
+  include_tasks: configure.yml

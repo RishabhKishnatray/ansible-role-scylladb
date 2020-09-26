@@ -1,0 +1,19 @@
+---
+- name: setup scylla
+  shell: >
+    scylla_setup
+    --no-raid-setup
+    --no-kernel-check
+    --no-selinux-setup
+    --no-ntp-setup
+    --no-node-exporter
+    --no-cpuscaling-setup
+    --no-fstrim-setup
+    --no-kernel-check
+  notify: restart scylla
+
+- name: restart scylla
+  service:
+    name: scylla-server
+    state: restarted
+    enabled: yes

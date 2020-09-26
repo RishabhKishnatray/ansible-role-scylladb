@@ -1,0 +1,38 @@
+num_tokens: 256
+cluster_name: {{ cluster_name }}
+data_file_directories: {{ data_file_dir }}
+commitlog_sync: periodic
+commitlog_sync_period_in_ms: 10000
+commitlog_segment_size_in_mb: 32
+
+seed_provider:
+    - class_name: org.apache.cassandra.locator.SimpleSeedProvider
+      parameters:
+          - seeds: "{{ seeds_str }}"
+
+listen_address: {{ listen_address }}
+native_transport_port: {{ native_transport_port }}
+read_request_timeout_in_ms: {{ read_request_timeout_in_ms }}
+write_request_timeout_in_ms: {{ write_request_timeout_in_ms }}
+endpoint_snitch: {{ endpoint_snitch }}
+
+rpc_address: {{ rpc_address }}
+api_address: {{ api_address }}
+rpc_port: {{ rpc_port }}
+api_port: {{ api_port }}
+
+batch_size_warn_threshold_in_kb: {{ batch_size_warn_threshold_in_kb }}
+batch_size_fail_threshold_in_kb: {{ batch_size_fail_threshold_in_kb }}
+
+authenticator: {{ authenticator }}
+authorizer: {{ authorizer }}
+hints_directory: {{ hints_directory }}
+view_hints_directory: {{ view_hints_directory }}
+commitlog_directory: {{ commitlog_directory }}
+partitioner: org.apache.cassandra.dht.Murmur3Partitioner
+saved_caches_directory: '{{ saved_caches_directory }}'
+commitlog_total_space_in_mb: -1
+
+murmur3_partitioner_ignore_msb_bits: 12
+api_ui_dir: /usr/lib/scylla/swagger-ui/dist/
+api_doc_dir: /usr/lib/scylla/api/api-doc/

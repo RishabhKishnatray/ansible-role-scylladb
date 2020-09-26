@@ -1,0 +1,2 @@
+---
+- debug: var=host_os
