@@ -5,6 +5,9 @@
     --no-raid-setup
     --no-node-exporter
   notify: restart scylla
+  when:
+    - ansible_virtualization_type is defined
+    - ansible_virtualization_type == 'docker'
 
 - name: restart scylla
   service:
