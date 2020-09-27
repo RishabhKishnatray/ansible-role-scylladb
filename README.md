@@ -23,13 +23,13 @@ Example Playbook
 
 
 ```YAML
-    - hosts: servers
-      vars:
-        seeds:
-          - 10.0.10.2
-          - 10.0.10.3
-      roles:
-         - samuelmwangiw.scylladb
+- hosts: servers
+  vars:
+    seeds:
+      - 10.0.10.2
+      - 10.0.10.3
+  roles:
+     - samuelmwangiw.scylladb
 ```
 
 License
