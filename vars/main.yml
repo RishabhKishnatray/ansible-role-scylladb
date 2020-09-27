@@ -1,6 +1,5 @@
 ---
 host_os: '{{ ansible_distribution }}-{{ ansible_distribution_release }}'
 supported_os:
-  - Ubuntu-focal
   - Ubuntu-bionic
   - CentOS-Core
