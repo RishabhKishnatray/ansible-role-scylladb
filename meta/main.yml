@@ -1,6 +1,6 @@
 galaxy_info:
   author: SamuelMwangiW
-  name: scylladb
+  role_name: scylladb
   description: Installs scylladb
   license: GPL-2.0-or-later
 
