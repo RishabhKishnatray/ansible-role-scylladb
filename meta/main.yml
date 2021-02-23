@@ -1,7 +1,7 @@
 galaxy_info:
   author: SamuelMwangiW
   role_name: scylladb
-  description: Installs scylladb
+  description: An ansible role that installs scylla db cluster on Linux
   license: GPL-2.0-or-later
 
   min_ansible_version: 2.8
