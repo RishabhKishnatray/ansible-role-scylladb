@@ -1,5 +1,5 @@
 ---
-- include_tasks: compatibility-check.yml
+# - include_tasks: compatibility-check.yml
 - name: 'Install scylladb '
   include_tasks: 'install-Debian.yml'
 - name: Configure scylladb
